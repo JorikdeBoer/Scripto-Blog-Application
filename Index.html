@@ -6,9 +6,14 @@
         <title>	Scripto Blog application </title>
         
         <!-- Link naar css style bestand -->
-        <link type="text/css" rel="stylesheet" href="Scripto.css" />
+        <link type="text/css" rel="stylesheet" href="Index.css" />
 	    <meta charset="utf-8">
-          
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+        </style>
         <script> 
                          
         </script>     
@@ -16,14 +21,15 @@
         
  
     <script>
-    </script>   
+    </script>     
     
-    <div id="Geheel">
+    <body background="achtergrond.jpg"> 
+      <div id="Geheel">
         <div id="menu">
             <div id="Welkom">
             <!-- Naam en motto app -->
                 <p class="welcome"> <b> Scripto: jouw blog applicatie, jouw geschriften! </b></p>
-                <div style="clear:both"></div>
+                <div style="clear:both"></div>  
             </div>     
 
             <div class="topnav">
@@ -31,20 +37,17 @@
                 <a href="Scripto.html">Schrijf zelf!</a>
                 <a href="#">Categorieën</a>
                 <div style="clear:both"></div>  
-            </div>    
+            </div>
             
-            <div id="Inputvak">    
-            <form action="Scripto.php" method="post">
-                Auteur: <input type="text" name="auteur"><br><br>
-                Titel: <input type="text" name="titel"><br><br>
-                tekst: <textarea name="tekst" rows="20" cols="140"></textarea>
-                <input type="submit" name="publiceer" value="Publiceer">  
-            </form>
+            <div id="Outputvak">    
+              <div class="column">
+                <h2>Laatste Blogs</h2>
+                <p> Lees hier de laatste blogs, wellicht van uw hand!</p>
+              </div>
             </div> 
         </div>
-    </div>   
-    
-    <body background="achtergrond.jpg">     
+    </div>      
+        
     </body>
 
 </html>

@@ -35,7 +35,14 @@ p {
     text-align: center;
 }
 
-#Inputvak{
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 100%;
+    padding: 25px;
+}
+
+#Outputvak{
     font: 16px Georgia, Serif; 	 
     text-align:left;
     margin:0 auto;
@@ -52,11 +59,12 @@ input[type=submit] {
    	background-color:rgb(255, 255, 255);
 	font-size:16px;
 	}
+}
 
 /* Style the top navigation bar */
 .topnav {
     overflow: hidden;
-    background-color: rgb(224, 224, 224));
+    background-color: rgb(224, 224, 224);
 }
 
 /* Style the topnav links */
@@ -73,4 +81,3 @@ input[type=submit] {
 .topnav a:hover {
     background-color: rgb(224, 224, 224);
     color: black;}
-}
