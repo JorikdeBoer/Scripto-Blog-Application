@@ -11,7 +11,8 @@ body {
 	text-align: center; 
 	}
 
-p {
+h1 {
+    font: 18px Georgia, Serif; 	
     text-align: center;
     color: solid rgb(255, 255, 255);
     text-transform: uppercase;
@@ -39,21 +40,21 @@ p {
 .column {
     float: left;
     width: 100%;
-    padding: 25px;
+    padding: 20px;
 }
 
 #Outputbox{
     font: 16px Georgia, Serif; 	 
-    text-align:left;
+    /*text-align:left;*/
     margin:0 auto;
     margin-bottom:25px;
-    padding:5px;
+    padding:0px;
     background:rgb(238, 0, 0);
-    height:370px;
+    height:95%;
     width:95%;
     border:1px solid rgb(0, 0, 0);
     overflow:auto;
-    float:center; }  
+    /*float:center;*/ }  
 
 input[type=submit] {
    	background-color:rgb(255, 255, 255);

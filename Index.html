@@ -29,8 +29,8 @@
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     //alert(xhr.response);
-                    document.output.outputtext.value = 
-                    "   " + xhr.response;  
+                    document.output.outputtext.value =
+                    xhr.response; 
                     console.log(xhr.responseText);
                 } else {
                     console.error(xhr.statusText);
@@ -66,7 +66,7 @@
             <form name="output" action="">  
             <div id="Outputbox">    
               <div class="column">
-                <p>Lees hier de laatste blogs, wellicht van uw hand!</p>
+                <h1>Lees hier de laatste blogs, wellicht van uw hand!</h1>
                 <textarea name="outputtext" cols="90" rows="20">
                 </textarea>
                 <input type="button" name="getmessage" onClick="getmessages();" value="Refresh blogs" />    

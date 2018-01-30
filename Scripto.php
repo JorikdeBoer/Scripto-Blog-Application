@@ -13,6 +13,8 @@
                 $password = "";
                 $dbname = "scripto"; 
                 $text = $_POST["myblog"];
+                $title = $_POST["title"];
+                $author = $_POST["author"];
                 //console.log($_POST["myblog"]);
                 //echo $_POST["myblog"];
             
@@ -21,8 +23,8 @@
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);}
-                $sql = "INSERT INTO scriptoblog (Tekst)".
-                "VALUES ('$text')";
+                $sql = "INSERT INTO scriptoblog (Tekst, Titel, Auteur)".
+                "VALUES ('$text', '$title', '$author')";
                 if ($conn->query($sql) === TRUE) {
                     echo "New record created successfully";} 
                 else {
@@ -46,15 +48,15 @@
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);}
-                $sql = "SELECT ID, Tekst FROM scriptoblog";
+                $sql = "SELECT ID, Tekst, Auteur, Titel FROM scriptoblog ORDER BY ID DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                    echo "                                                                                                             
-                    ID: " . $row["ID"]. " - Blog: " . $row["Tekst"]. 
-                    "    ";
+                    echo "\r\n Auteur: " . $row["Auteur"]. "\r\n";
+                    echo "Titel: " . $row["Titel"]. "\r\n"; 
+                    echo "Blog: " . $row["Tekst"]. "\r\n" ;
                     }
                 } else {
                     echo "0 results";

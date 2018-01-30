@@ -19,11 +19,11 @@
     
     // Send blog message to database 
     function submitmessage() {
-        var blog = document.bloginput.author.value + "    " 
-                 + document.bloginput.title.value + "    " 
-                 + document.bloginput.text.value;  
+        var author = document.bloginput.author.value; 
+        var title = document.bloginput.title.value;  
+        var blog = document.bloginput.text.value;  
         var xhr = new XMLHttpRequest();  
-        var value = "myblog=" +blog;
+        var value = "myblog=" + blog + "&author=" + author + "&title=" + title;
         xhr.open('POST', "http://localhost/Scripto/Scripto.php", true); 
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');  
         console.log(value);
@@ -54,7 +54,7 @@
             <form name="bloginput" action="" method="post">
                 Auteur: <input type="text" name="author"><br><br>
                 Titel: <input type="text" name="title"><br><br>
-                Tekst: <textarea name="text" rows="20" cols="140"></textarea>
+                Tekst: <textarea name="text" rows="20" cols="90"></textarea>
                 <input type="button" name="publiceer" onClick="submitmessage();" value="Publiceer" />  
             </form>
             </div> 
