@@ -16,16 +16,32 @@
         
  
     <script>
+    
+    // Send blog message to database 
+    function submitmessage() {
+        var blog = document.bloginput.author.value + "    " 
+                 + document.bloginput.title.value + "    " 
+                 + document.bloginput.text.value;  
+        var xhr = new XMLHttpRequest();  
+        var value = "myblog=" +blog;
+        xhr.open('POST', "http://localhost/Scripto/Scripto.php", true); 
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');  
+        console.log(value);
+        xhr.send(value);       
+    }
+            
     </script>   
     
-    <div id="Geheel">
-        <div id="menu">
-            <div id="Welkom">
-            <!-- Naam en motto app -->
+    <!--Build-up of submit page -->
+    <div id="Total">
+        <div id="Menu">
+            <div id="Welcome">
+            <!-- Name and slogan app -->
                 <p class="welcome"> <b> Scripto: jouw blog applicatie, jouw geschriften! </b></p>
                 <div style="clear:both"></div>
             </div>     
 
+            <!-- Navigation bar links -->
             <div class="topnav">
                 <a href="Index.html">Menu</a>
                 <a href="Scripto.html">Schrijf zelf!</a>
@@ -33,12 +49,13 @@
                 <div style="clear:both"></div>  
             </div>    
             
-            <div id="Inputvak">    
-            <form action="Scripto.php" method="post">
-                Auteur: <input type="text" name="auteur"><br><br>
-                Titel: <input type="text" name="titel"><br><br>
-                tekst: <textarea name="tekst" rows="20" cols="140"></textarea>
-                <input type="submit" name="publiceer" value="Publiceer">  
+            <!-- Inputbox: name, title & text -->
+            <div id="Inputbox">    
+            <form name="bloginput" action="" method="post">
+                Auteur: <input type="text" name="author"><br><br>
+                Titel: <input type="text" name="title"><br><br>
+                Tekst: <textarea name="text" rows="20" cols="140"></textarea>
+                <input type="button" name="publiceer" onClick="submitmessage();" value="Publiceer" />  
             </form>
             </div> 
         </div>

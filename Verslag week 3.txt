@@ -1,0 +1,18 @@
+Planning, Reflectie, Opbouw, Doelen & Verslag 
+Blog applicatie Scripto in PHP met database
+
+Maandag en dinsdag ingelezen in opdracht en de bijbehorende onderwerpen:
+ databases, communicatie PHP met database, blog layout, etc.
+
+Maandag gewerkt aan PHP opdrachten, motiviatiebrief en opbouw +layout van de submit pagina in scripto.html en de overzichtspagina in index.html
+Dinsdag heb ik in de ochtend gewerkt aan de database en een functie om een blog in de database te zetten. 
+
+Het doel voor de eerste versie:
+	1. een versimpelde blog app met een "submit" pagina en een "overzichts" pagina.
+	2. een API in PHP die via een database de blogs opslaat en laat zien op de overzichtspagina.
+	3. Keuze uit standaard categoriën om e blogs in te delen
+	4. verslag van de planning, opbouw, doelen, reflectie etc. (in de vorm van dit document op basis van kladbriefjes en mijn dagboek
+	(helaas niet geschikt om in te zien) en progressie in Trello
+ 
+
+
