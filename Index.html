@@ -19,8 +19,30 @@
         </script>     
      </head>
         
- 
     <script>
+        
+    // Get blog from database to publish on site
+    function getmessages() {
+        var xhr = new XMLHttpRequest();  
+        xhr.open('GET', "http://localhost/Scripto/Scripto.php", true); 
+        xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    //alert(xhr.response);
+                    document.output.outputtext.value = 
+                    "   " + xhr.response;  
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.statusText);
+                }
+            }
+        }; 
+        xhr.onerror = function (e) {
+              console.error(xhr.statusText);
+        };
+        xhr.send(null);  
+    }    
+        
     </script>     
     
     <body background="achtergrond.jpg"> 
@@ -41,13 +63,17 @@
             </div>
             
             <!-- Outputbox: the blogs with name, title & text -->
+            <form name="output" action="">  
             <div id="Outputbox">    
               <div class="column">
-                <h2>Laatste Blogs</h2>
-                <p> Lees hier de laatste blogs, wellicht van uw hand!</p>
+                <p>Lees hier de laatste blogs, wellicht van uw hand!</p>
+                <textarea name="outputtext" cols="90" rows="20">
+                </textarea>
+                <input type="button" name="getmessage" onClick="getmessages();" value="Refresh blogs" />    
               </div>
             </div> 
+            </form>
         </div>
-    </div>      
+      </div>      
     </body>
 </html>

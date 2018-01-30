@@ -4,19 +4,17 @@
 
     $verb = $_SERVER['REQUEST_METHOD'];
 
-    // code om met GET (nieuwe) berichten te krijgen (met de parameters "minimumid" & mykey") 
+    // code om met POST (nieuwe) blogs in de sql database te zetten
     if ($verb == 'POST'){
         if (isset( $_POST["myblog"] )){
-                //echo "Username: " .$_POST["username"]. "\n";
-                //echo "Message: " .$_POST["message"]. "\n";
-
+            
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "scripto"; 
                 $text = $_POST["myblog"];
                 //console.log($_POST["myblog"]);
-                echo $_POST["myblog"];
+                //echo $_POST["myblog"];
             
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,20 +27,38 @@
                     echo "New record created successfully";} 
                 else {
                     echo "Error: " . $sql . "<br>" . $conn->error;}
-                $conn->close();
-
-                //$new_content = "The username = " .$_POST["username"]. "\nThe message = " .$_POST["message"]. "\n";
-                //echo $old_content;
-                //echo $new_content;
-                //fwrite($mytextfile, $new_content."\n".$old_content);
-                //fclose($mytextfile);
-                //$myfile = fopen("newfile2.txt", "w") or die("Unable to open file!");
-                //$txt = $_POST['value'];
-                //fwrite($myfile, $txt);
-                //fclose($myfile);          
+                $conn->close();        
         }
           else {
             die("Error: the required parameters are missing.");    
         }
-    }   
+    }
+
+    // code om met GET (nieuwe) blogs uit de sql database te halen
+    if ($verb == 'GET'){
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "scripto"; 
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);}
+                $sql = "SELECT ID, Tekst FROM scriptoblog";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                    echo "                                                                                                             
+                    ID: " . $row["ID"]. " - Blog: " . $row["Tekst"]. 
+                    "    ";
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+     }
 ?>

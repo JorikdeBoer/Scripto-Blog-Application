@@ -5,7 +5,6 @@ Maandag en dinsdag ingelezen in opdracht en de bijbehorende onderwerpen:
  databases, communicatie PHP met database, blog layout, etc.
 
 Maandag gewerkt aan PHP opdrachten, motiviatiebrief en opbouw +layout van de submit pagina in scripto.html en de overzichtspagina in index.html
-Dinsdag heb ik in de ochtend gewerkt aan de database en een functie om een blog in de database te zetten. 
 
 Het doel voor de eerste versie:
 	1. een versimpelde blog app met een "submit" pagina en een "overzichts" pagina.
