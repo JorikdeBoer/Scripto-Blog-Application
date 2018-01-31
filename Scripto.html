@@ -2,22 +2,21 @@
 
 <html>
     <head>
-        
+        <!-- The writing page of the Scripto blog application -->
         <title>	Scripto Blog application </title>
         
-        <!-- Link naar css style bestand -->
+        <!-- Link to css style file -->
         <link type="text/css" rel="stylesheet" href="Scripto.css" />
 	    <meta charset="utf-8">
           
-        <script> 
-                         
+        <script>                   
         </script>     
      </head>
         
  
     <script>
     
-    // Send blog message to database 
+    // Send written blog message to database 
     function submitmessage() {
         var author = document.bloginput.author.value; 
         var title = document.bloginput.title.value;  
@@ -31,13 +30,15 @@
         xhr.send(value);       
     }
             
-    </script>   
+    </script>  
     
-    <!--Build-up of submit page -->
-    <div id="Total">
+    <!-- Insert background with clouds -->
+    <body background="achtergrond.jpg"> 
+      <!--Build-up of submit page -->
+      <div id="Total">
         <div id="Menu">
             <div id="Welcome">
-            <!-- Name and slogan app -->
+                <!-- Name and slogan of the blog app -->
                 <p class="welcome"> <b> Scripto: jouw blog applicatie, jouw geschriften! </b></p>
                 <div style="clear:both"></div>
             </div>     
@@ -50,26 +51,24 @@
                 <div style="clear:both"></div>  
             </div>    
             
-            <!-- Inputbox: name, title & text -->
+            <!-- Inputbox: Your written blog with author, title, category & text-->
             <div id="Inputbox">    
-            <form name="bloginput" action="" method="post">
+              <form name="bloginput" action="" method="post">
                 Auteur: <input type="text" name="author"><br><br>
                 Titel: <input type="text" name="title"><br><br>
                 Categorie: 
                 <select name="category">
-                <option selected value="water">Lucht</option>
-                <option value="aarde">Aarde</option>
-                <option value="vuur">Water</option>
-                <option value="lucht">Vuur</option>
+                <option selected value="water">Lucht (luchtige verhalen)</option>
+                <option value="aarde">Aarde (aardige verhalen)</option>
+                <option value="vuur">Water (kabbelende verhalen)</option>
+                <option value="lucht">Vuur (vurige verhalen)</option>
                 </select><br><br>
                 Tekst: <textarea name="text" rows="20" cols="90"></textarea>
+                <!-- Button to submit the new written blog to the database -->
                 <input type="button" name="publiceer" onClick="submitmessage();" value="Publiceer" />  
-            </form>
+              </form>
             </div> 
         </div>
-    </div>   
-    
-    <body background="achtergrond.jpg">     
+      </div>       
     </body>
-
 </html>

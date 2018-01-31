@@ -5,6 +5,12 @@ Maandag en dinsdag ingelezen in opdracht en de bijbehorende onderwerpen:
  databases, communicatie PHP met database, blog layout, etc.
 
 Maandag gewerkt aan PHP opdrachten, motiviatiebrief en opbouw +layout van de submit pagina in scripto.html en de overzichtspagina in index.html
+Dinsdags in de ochtend heb ik gewerkt aan de functie die de blogs in de database zet en de functie die de blogs tevoorschijn haalt voor de overzichtspagina. 
+Dinsdag middag heb ik de functies getest en ervoor gezorgd dat de meest recente berichten bovenaan komen te staan. Ook heeft elke blog nu een aparte regel voor auteur en titel.
+De blogs hebben een witregel om ze te onderscheiden. 's avonds heb ik de motiviatiebrief ingestuurd. 
+Woensdag heb ik de mogelijkheid om een blog onder te brengen bij 1 v/d 4 categoriën in het programma gebouwd. Daarnaast heb ik aan de leesbaarheid van de code gewerkt en heb ik 
+de blog applicatie toegankelijk gemaakt via een online versie op http://wijzijncodegorilla.nl/jorik/Scripto/
+Op woensdag heb ik ook gewerkt aan de debugging opdracht n.a.v. het college van dinsdag. 
 
 Het doel voor de eerste versie:
 	1. een versimpelde blog app met een "submit" pagina en een "overzichts" pagina.

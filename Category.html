@@ -2,10 +2,10 @@
 
 <html>
     <head>
-        
+        <!-- The category page of the Scripto blog application -->
         <title>	Scripto Blog application </title>
         
-        <!-- Link naar css style bestand -->
+        <!-- Link to css style file -->
         <link type="text/css" rel="stylesheet" href="Index.css" />
 	    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,34 +14,35 @@
             box-sizing: border-box;
         }
         </style>
-        <script> 
-                         
+        <script>                 
         </script>     
      </head>
         
     <script>
     
-    <!-- globals -->       
+    // Categories      
     var water = "water";
     var earth = "aarde";
     var fire = "vuur";       
     var air = "lucht";
-        
-        
-    // Get blog from database to publish on site
+              
+    // Get blogs from certain category from database to publish on site
     function getcategorymessages(input) {
         var xhr = new XMLHttpRequest();     
-            var cat = input;
-            console.log(cat);
-            var url = "http://localhost/Scripto/Scripto.php?category="+cat;
-            xhr.open('GET', url, true);
-            xhr.onload = function (e) {
-                if (xhr.readyState === xhr.DONE) {
-                    if (xhr.status === 200) {
+        var cat = input;
+        console.log(cat);
+        var url = "http://localhost/Scripto/Scripto.php?category="+cat;
+        xhr.open('GET', url, true);
+        xhr.onload = function (e) {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
+                    // The reponse contains all blogs from the input category in the databse 
+                    // with author, title and blog (ordered by descending ID numbers)    
                     document.output.outputtext.value =
                     xhr.response;
                     console.log(xhr.responseText);
-                } else {
+                } 
+                else {
                     console.error(xhr.statusText);
                 } 
             }
@@ -54,11 +55,13 @@
         
     </script>     
     
-    <body background="achtergrond.jpg"> 
+    <!-- Insert background with clouds -->
+    <body background="achtergrond.jpg">
+      <!--Build-up of category page -->     
       <div id="Total">
         <div id="Menu">
             <div id="Welcome">
-            <!-- Name and slogan app -->
+            <!-- Name and slogan of the blog app -->
                 <p class="welcome"> <b> Scripto: jouw blog applicatie, jouw geschriften! </b></p>
                 <div style="clear:both"></div>  
             </div>     
@@ -71,11 +74,12 @@
                 <div style="clear:both"></div>  
             </div>
             
-            <!-- Outputbox: the blogs with name, title & text -->
+            <!-- Outputbox: All the blogs of the chosen category with author, title & text ordered by descending ID numbers -->
             <form name="output" action="">  
             <div id="Outputbox">    
               <div class="column">
                 <h1>Lees hier de laatste blogs per categorie!</h1>
+                <!-- Buttons to select the category of the blogs that the reader wants to see -->  
                 <input type="button" name="getwatermessages" onClick="getcategorymessages(water);" value="Water" /> 
                 <input type="button" name="getearthmessages" onClick="getcategorymessages(earth);" value="Aarde" />
                 <input type="button" name="getfiremessages" onClick="getcategorymessages(fire);" value="Vuur" /> 

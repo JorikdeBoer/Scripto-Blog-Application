@@ -2,10 +2,10 @@
 
 <html>
     <head>
-        
+        <!-- The overview page of the Scripto blog application -->
         <title>	Scripto Blog application </title>
         
-        <!-- Link naar css style bestand -->
+        <!-- Link to css style file -->
         <link type="text/css" rel="stylesheet" href="Index.css" />
 	    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,25 +14,28 @@
             box-sizing: border-box;
         }
         </style>
-        <script> 
-                         
+        <script>                
         </script>     
      </head>
         
     <script>
+    // Load all blogs automatically while loading the page    
+    getmessages() ; 
         
-    // Get blog from database to publish on site
+    // Get all the posted blogs from the database to publish on the site
     function getmessages() {
         var xhr = new XMLHttpRequest();  
         xhr.open('GET', "http://localhost/Scripto/Scripto.php", true); 
         xhr.onload = function (e) {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    //alert(xhr.response);
+                    // The reponse contains all blogs in the databse with author, 
+                    // title and blog and is ordered by descending ID numbers
                     document.output.outputtext.value =
                     xhr.response; 
                     console.log(xhr.responseText);
-                } else {
+                } 
+                else {
                     console.error(xhr.statusText);
                 }
             }
@@ -45,11 +48,13 @@
         
     </script>     
     
+    <!-- Insert background with clouds -->
     <body background="achtergrond.jpg"> 
+      <!--Build-up of index page -->        
       <div id="Total">
         <div id="Menu">
             <div id="Welcome">
-            <!-- Name and slogan app -->
+                <!-- Name and slogan of the blog app -->
                 <p class="welcome"> <b> Scripto: jouw blog applicatie, jouw geschriften! </b></p>
                 <div style="clear:both"></div>  
             </div>     
@@ -62,16 +67,17 @@
                 <div style="clear:both"></div>  
             </div>
             
-            <!-- Outputbox: the blogs with name, title & text -->
+            <!-- Outputbox: All the blogs with author, title & text ordered by descending ID numbers -->
             <form name="output" action="">  
-            <div id="Outputbox">    
-              <div class="column">
-                <h1>Lees hier de laatste blogs, wellicht van uw hand!</h1>
-                <textarea name="outputtext" cols="90" rows="20">
-                </textarea>
-                <input type="button" name="getmessage" onClick="getmessages();" value="Refresh blogs" />    
-              </div>
-            </div> 
+              <div id="Outputbox">    
+                <div class="column">
+                  <h1>Lees hier de laatste blogs, wellicht van uw hand!</h1>
+                  <textarea name="outputtext" cols="90" rows="20">
+                  </textarea>
+                <!-- Button to refresh the outputbox to include new posted blogs since page was loaded -->  
+                <input type="button" name="ververs" onClick="getmessages();" value="Ververs blogs" />    
+                </div>
+              </div> 
             </form>
         </div>
       </div>      
