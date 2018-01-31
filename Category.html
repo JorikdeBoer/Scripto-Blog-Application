@@ -20,27 +20,36 @@
      </head>
         
     <script>
+    
+    <!-- globals -->       
+    var water = "water";
+    var earth = "aarde";
+    var fire = "vuur";       
+    var air = "lucht";
+        
         
     // Get blog from database to publish on site
-    function getmessages() {
-        var xhr = new XMLHttpRequest();  
-        xhr.open('GET', "http://localhost/Scripto/Scripto.php", true); 
-        xhr.onload = function (e) {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    //alert(xhr.response);
+    function getcategorymessages(input) {
+        var xhr = new XMLHttpRequest();     
+            var cat = input;
+            console.log(cat);
+            var url = "http://localhost/Scripto/Scripto.php?category="+cat;
+            xhr.open('GET', url, true);
+            xhr.onload = function (e) {
+                if (xhr.readyState === xhr.DONE) {
+                    if (xhr.status === 200) {
                     document.output.outputtext.value =
-                    xhr.response; 
+                    xhr.response;
                     console.log(xhr.responseText);
                 } else {
                     console.error(xhr.statusText);
-                }
+                } 
             }
         }; 
         xhr.onerror = function (e) {
               console.error(xhr.statusText);
         };
-        xhr.send(null);  
+        xhr.send(null); 
     }    
         
     </script>     
@@ -66,10 +75,13 @@
             <form name="output" action="">  
             <div id="Outputbox">    
               <div class="column">
-                <h1>Lees hier de laatste blogs, wellicht van uw hand!</h1>
+                <h1>Lees hier de laatste blogs per categorie!</h1>
+                <input type="button" name="getwatermessages" onClick="getcategorymessages(water);" value="Water" /> 
+                <input type="button" name="getearthmessages" onClick="getcategorymessages(earth);" value="Aarde" />
+                <input type="button" name="getfiremessages" onClick="getcategorymessages(fire);" value="Vuur" /> 
+                <input type="button" name="getairmessages" onClick="getcategorymessages(air);" value="Lucht" />  
                 <textarea name="outputtext" cols="90" rows="20">
-                </textarea>
-                <input type="button" name="getmessage" onClick="getmessages();" value="Refresh blogs" />    
+                </textarea>  
               </div>
             </div> 
             </form>

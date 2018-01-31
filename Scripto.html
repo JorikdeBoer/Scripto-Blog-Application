@@ -22,8 +22,9 @@
         var author = document.bloginput.author.value; 
         var title = document.bloginput.title.value;  
         var blog = document.bloginput.text.value;  
+        var category = document.bloginput.category.value; 
         var xhr = new XMLHttpRequest();  
-        var value = "myblog=" + blog + "&author=" + author + "&title=" + title;
+        var value = "myblog=" + blog + "&author=" + author + "&title=" + title + "&category=" + category;
         xhr.open('POST', "http://localhost/Scripto/Scripto.php", true); 
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');  
         console.log(value);
@@ -44,8 +45,8 @@
             <!-- Navigation bar links -->
             <div class="topnav">
                 <a href="Index.html">Menu</a>
+                <a href="Category.html">Categorieën</a>
                 <a href="Scripto.html">Schrijf zelf!</a>
-                <a href="#">Categorieën</a>
                 <div style="clear:both"></div>  
             </div>    
             
@@ -54,6 +55,13 @@
             <form name="bloginput" action="" method="post">
                 Auteur: <input type="text" name="author"><br><br>
                 Titel: <input type="text" name="title"><br><br>
+                Categorie: 
+                <select name="category">
+                <option selected value="water">Lucht</option>
+                <option value="aarde">Aarde</option>
+                <option value="vuur">Water</option>
+                <option value="lucht">Vuur</option>
+                </select><br><br>
                 Tekst: <textarea name="text" rows="20" cols="90"></textarea>
                 <input type="button" name="publiceer" onClick="submitmessage();" value="Publiceer" />  
             </form>

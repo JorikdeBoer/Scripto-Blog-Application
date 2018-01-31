@@ -15,6 +15,7 @@
                 $text = $_POST["myblog"];
                 $title = $_POST["title"];
                 $author = $_POST["author"];
+                $category = $_POST["category"];
                 //console.log($_POST["myblog"]);
                 //echo $_POST["myblog"];
             
@@ -23,8 +24,8 @@
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);}
-                $sql = "INSERT INTO scriptoblog (Tekst, Titel, Auteur)".
-                "VALUES ('$text', '$title', '$author')";
+                $sql = "INSERT INTO scriptoblog (Tekst, Titel, Auteur, Categorie)".
+                "VALUES ('$text', '$title', '$author', '$category')";
                 if ($conn->query($sql) === TRUE) {
                     echo "New record created successfully";} 
                 else {
@@ -38,6 +39,34 @@
 
     // code om met GET (nieuwe) blogs uit de sql database te halen
     if ($verb == 'GET'){
+        if (isset( $_GET["category"] )){
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "scripto"; 
+                $category = $_GET["category"];
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);}
+                $sql = "SELECT ID, Tekst, Auteur, Titel, Categorie FROM scriptoblog WHERE Categorie='$category' ORDER BY ID DESC";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                    echo "\r\n Auteur: " . $row["Auteur"]. "\r\n";
+                    echo "Titel: " . $row["Titel"]. "\r\n"; 
+                    echo "Blog: " . $row["Tekst"]. "\r\n" ;
+                    }
+                } 
+                else {
+                    echo "0 results";
+                $conn->close();  
+                }
+        }
+        else {    
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
@@ -48,7 +77,7 @@
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);}
-                $sql = "SELECT ID, Tekst, Auteur, Titel FROM scriptoblog ORDER BY ID DESC";
+                $sql = "SELECT ID, Tekst, Auteur, Titel, Categorie FROM scriptoblog ORDER BY ID DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -62,5 +91,6 @@
                     echo "0 results";
                 }
                 $conn->close();
-     }
+        }
+    }
 ?>
