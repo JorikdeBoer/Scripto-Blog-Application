@@ -35,7 +35,7 @@
                     
                 // Insert blog into blog database
                 $sql = "INSERT INTO blogs (titel, auteur, tekst)".
-                "VALUES ('$text', '$title', '$author')";
+                "VALUES ('$title', '$author', '$text')";
                 // Check of a new entry in database has been created
                 if ($conn->query($sql) === TRUE) {
                     echo "New record created successfully";} 
