@@ -24,7 +24,7 @@
         var category = document.bloginput.category.value; 
         var xhr = new XMLHttpRequest();  
         var value = "myblog=" + blog + "&author=" + author + "&title=" + title + "&category=" + category;
-        xhr.open('POST', "http://localhost/Scripto/Scripto.php", true); 
+        xhr.open('POST', "http://localhost/Scripto/Scripto2.php", true); 
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');  
         console.log(value);
         xhr.send(value);       
@@ -45,9 +45,9 @@
 
             <!-- Navigation bar links -->
             <div class="topnav">
-                <a href="Index.html">Menu</a>
-                <a href="Category.html">Categorieën</a>
-                <a href="Scripto.html">Schrijf zelf!</a>
+                <a href="Index2.html">Menu</a>
+                <a href="Category2.html">Categorieën</a>
+                <a href="Scripto2.html">Schrijf zelf!</a>
                 <div style="clear:both"></div>  
             </div>    
             
@@ -57,12 +57,19 @@
                 Auteur: <input type="text" name="author"><br><br>
                 Titel: <input type="text" name="title"><br><br>
                 Categorie: 
-                <select name="category">
-                <option selected value="lucht">Lucht (luchtige verhalen)</option>
-                <option value="aarde">Aarde (aardige verhalen)</option>
-                <option value="water">Water (kabbelende verhalen)</option>
-                <option value="vuur">Vuur (vurige verhalen)</option>
-                </select><br><br>
+                <input name="category" type="text" list="categories" />
+                <datalist id="categories">
+                  <option value="vuur">vuur</option>
+                  <option value="water">water</option>
+                  <option value="aarde">aarde</option>
+                  <option value="lucht">lucht</option>
+                </datalist><br><br> 
+                <!-- <select name="category">
+                //<option selected value="water">Lucht (luchtige verhalen)</option>
+                //<option value="aarde">Aarde (aardige verhalen)</option>
+                //<option value="vuur">Water (kabbelende verhalen)</option>
+                //<option value="lucht">Vuur (vurige verhalen)</option>
+                </select><br><br> -->
                 Tekst: <textarea name="text" rows="20" cols="90"></textarea>
                 <!-- Button to submit the new written blog to the database -->
                 <input type="button" name="publiceer" onClick="submitmessage();" value="Publiceer" />  
