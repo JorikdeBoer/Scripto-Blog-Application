@@ -25,6 +25,7 @@
     var earth = "aarde";
     var fire = "vuur";       
     var air = "lucht";
+    var info = "Bloginfo";
               
     // Get blogs from certain category from database to publish on site
     function getcategorymessages(input) {
@@ -83,7 +84,8 @@
                 <input type="button" name="getwatermessages" onClick="getcategorymessages(water);" value="Water" /> 
                 <input type="button" name="getearthmessages" onClick="getcategorymessages(earth);" value="Aarde" />
                 <input type="button" name="getfiremessages" onClick="getcategorymessages(fire);" value="Vuur" /> 
-                <input type="button" name="getairmessages" onClick="getcategorymessages(air);" value="Lucht" />  
+                <input type="button" name="getairmessages" onClick="getcategorymessages(air);" value="Lucht" /> 
+                <input type="button" name="getbloginfomessages" onClick="getcategorymessages(info);" value="Bloginfo" />   
                 <textarea name="outputtext" cols="90" rows="20">
                 </textarea>  
               </div>

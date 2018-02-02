@@ -11,10 +11,6 @@ De blogs hebben een witregel om ze te onderscheiden. 's avonds heb ik de motivia
 Woensdag heb ik de mogelijkheid om een blog onder te brengen bij 1 v/d 4 categoriën in het programma gebouwd. Daarnaast heb ik aan de leesbaarheid van de code gewerkt en heb ik 
 de blog applicatie toegankelijk gemaakt via een online versie op http://wijzijncodegorilla.nl/jorik/Scripto/
 Op woensdag heb ik ook gewerkt aan de debugging opdracht n.a.v. het college van dinsdag. 
-Donderdag heb ik naar aanleiding van het database college in de ochtend de database van de blog herbouwt met 3 tabellen i.p.v. 1 tabel. 
-Ook kan de gebruiker nu een eigen categorie introduceren, al komt de categorie nog niet bij het tabblad categorieën te staan.
-Een blog kan nu ook meerdere categorieën bevatten. 
- 
 
 Het doel voor de eerste versie:
 	1. een versimpelde blog app met een "submit" pagina en een "overzichts" pagina.

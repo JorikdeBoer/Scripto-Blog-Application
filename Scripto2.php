@@ -115,27 +115,31 @@
                     while($row = $result->fetch_assoc()) {    
                     $category_number = $row['category_id'];}
                 }
-                // Get blog_id
+                // Get blog_id's
                 $sql = "SELECT blog_id FROM articles_categories WHERE category_id = '$category_number'";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) { 
                     while($row = $result->fetch_assoc()) {
-                    $blog_number = $row['blog_id'];}
+                    $blog_number = $row['blog_id'];  
+                    
+                    // Get blogs with the blog_id's based on the category_id    
+                    $sql = "SELECT blog_id, tekst, auteur, titel FROM blogs WHERE blog_id= '$blog_number' ORDER BY blog_id DESC";
+                    $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            // Output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                echo "\r\n Auteur: " . $row["auteur"]. "\r\n";
+                                echo "Titel: " . $row["titel"]. "\r\n"; 
+                                echo "Categorie: " .$category. "\r\n" ;
+                                echo "Blog: " . $row["tekst"]. "\r\n" ;
+                            }
+                        }
+                    }     
                 }
-                // Get blogs with the blog_id's based on the category_id
-                $sql = "SELECT blog_id, tekst, auteur, titel FROM blogs WHERE blog_id= '$blog_number' ORDER BY blog_id DESC";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "\r\n Auteur: " . $row["auteur"]. "\r\n";
-                        echo "Titel: " . $row["titel"]. "\r\n"; 
-                        echo "Blog: " . $row["tekst"]. "\r\n" ;
-                    }
-                } 
-                else {
-                    echo "0 results"; 
-                }
+            
+                //else {
+                //    echo "0 results"; 
+                //}
                 $conn->close(); 
         }
         
